@@ -3,6 +3,7 @@ import com.example.Feline;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
@@ -15,6 +16,9 @@ public class CatTest {
 
     @Mock
     Feline feline;
+
+    @Mock
+    Cat cat;
 
     @Test
     public void catSoundTest() {
@@ -29,10 +33,12 @@ public class CatTest {
     @Test
     public void foodTest() throws Exception {
 
-        Cat cat = new Cat(feline);
 
+        Mockito.when(cat.getFood()).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
         List<String> actualFood = cat.getFood();
         List<String> expectedFood = Arrays.asList("Животные", "Птицы", "Рыба");
+        assertEquals(expectedFood, actualFood);
 
     }
 }
+//"Животные", "Птицы", "Рыба"
