@@ -31,20 +31,12 @@ public class CatTest {
     @Test
     public void foodTest() throws Exception {
 
-        //Вот так вроде бред же получается, тестим не тот метод
         Cat cat = new Cat(feline);
 
-        Mockito.when(feline.getFood("Хищник")).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
-        List<String> actualFood = feline.getFood("Хищник"); //cat.getFood не возвращает ничего (
+        Mockito.when(feline.eatMeat()).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
+        List<String> actualFood = cat.getFood();
         List<String> expectedFood = Arrays.asList("Животные", "Птицы", "Рыба");
         assertEquals(expectedFood, actualFood);
-
-        /*Получается только такой вариант, если мок убрать и создать реальный объект, по другому я хз ((
-        Feline feline = new Feline();
-        Cat cat = new Cat(feline);
-
-        List<String> actualFood = cat.getFood();
-        List<String> expectedFood = Arrays.asList("Животные", "Птицы", "Рыба");*/
 
     }
 }

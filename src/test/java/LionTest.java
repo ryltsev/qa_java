@@ -59,4 +59,3 @@ public class LionTest {
         Lion lion = new Lion("Пацан", feline);
     }
 }
-//"Используйте допустимые значения пола животного - самец или самка"
